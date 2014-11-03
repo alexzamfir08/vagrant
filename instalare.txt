@@ -1,1 +1,3 @@
+# Go to Start menu > run and execute:
+
 vagrant plugin install vagrant-winnfsd
