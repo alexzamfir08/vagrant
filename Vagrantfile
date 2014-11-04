@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   config.vm.network 'private_network', ip: "192.168.56.2"
 
   # NFS sharing
-  config.vm.synced_folder "./exchange_app", "/var/www/html", id: "1", type: 'nfs'
+  config.vm.synced_folder "./exchange_app", "/var/www/exchange_app", id: "1", type: 'nfs'
 
   #virtualbox.customize ['modifyvm', :id, '--memory', "1024"]
   #virtualbox.customize ['modifyvm', :id, '--cpus', "1"]
@@ -36,6 +36,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "environment/scripts/php.sh"
   config.vm.provision :shell, :path => "environment/scripts/apache.sh"
   config.vm.provision :shell, :path => "environment/scripts/git.sh"
+  config.vm.provision :shell, :path => "environment/scripts/insxcloud.sh"
   #config.vm.provision :shell, :path => "environment/scripts/custom-yum-remi-repo.sh" # needed for xsendfile
   #config.vm.provision :shell, :path => "environment/scripts/apache-modxsendfile.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-geoip.sh"
