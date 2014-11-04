@@ -9,9 +9,6 @@ mv composer.phar /usr/bin/composer
 
 echo "Composer installed"
 
-echo "Installing git due to composer dependency"
-yum install -y git
-
 cd /var/www/html
 if [ -r "composer.json" ]
 then
