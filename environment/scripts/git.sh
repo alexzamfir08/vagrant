@@ -2,10 +2,9 @@
 VER="1.8.5"
 GIT_VERSION="$(git --version)"
 
-
-if [[ "$GIT_VERSION" != "git version"* ]]; then
-        echo "Removing git"
-        yum -y remove git-*
+echo "Removing git"
+yum -y remove git-*
+if [[ "$GIT_VERSION" != "git version"* ]]; then        
         echo "Dependencies..."
         yum install -y gettext-devel expat-devel curl-devel zlib-devel openssl-devel cpio perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
         rm -rf /usr/local/src/git*
