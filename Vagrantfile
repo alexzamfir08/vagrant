@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "environment/scripts/iptables.sh"
   config.vm.provision :shell, :path => "environment/scripts/php.sh"
   config.vm.provision :shell, :path => "environment/scripts/apache.sh"
-  config.vm.privision :shell, :path => "environment/scripts/git.sh"
+  config.vm.provision :shell, :path => "environment/scripts/git.sh"
   #config.vm.provision :shell, :path => "environment/scripts/custom-yum-remi-repo.sh" # needed for xsendfile
   #config.vm.provision :shell, :path => "environment/scripts/apache-modxsendfile.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-geoip.sh"
