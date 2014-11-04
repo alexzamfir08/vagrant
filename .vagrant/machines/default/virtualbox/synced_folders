@@ -1,1 +1,0 @@
-{"nfs":{"1":{"id":"1","guestpath":"/var/www/html","hostpath":"/D/Projects/vagrant-insx/exchange_app","disabled":false,"type":"nfs","map_uid":0,"map_gid":0,"nfs_udp":true,"nfs_version":3,"uuid":"104975560","mount_options":["vers=3","udp","nolock"]}},"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"D:/Projects/vagrant-insx","disabled":false}}}
