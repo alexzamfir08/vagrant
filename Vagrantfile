@@ -24,19 +24,25 @@ Vagrant.configure("2") do |config|
   config.vm.network 'private_network', ip: "192.168.56.2"
 
   # NFS sharing
-  config.vm.synced_folder "./exchange_app", "/var/www/exchange_app", id: "1", type: 'nfs'
+  config.vm.synced_folder "./exchange_app", "/var/www/exchange_app", id: "1"
 
-  #virtualbox.customize ['modifyvm', :id, '--memory', "1024"]
-  #virtualbox.customize ['modifyvm', :id, '--cpus', "1"]
+  # 1 GB memory
+  config.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
 
   #Install lamp and so on
   #In future will probably swap this out with something like Puppet
   config.vm.provision :shell, :path => "environment/scripts/packages.sh"
   config.vm.provision :shell, :path => "environment/scripts/iptables.sh"
-  config.vm.provision :shell, :path => "environment/scripts/php.sh"
-  config.vm.provision :shell, :path => "environment/scripts/apache.sh"
+
+  #config.vm.provision :shell, :path => "environment/scripts/php.sh"
+  #config.vm.provision :shell, :path => "environment/scripts/apache.sh"
+
   config.vm.provision :shell, :path => "environment/scripts/git.sh"
   config.vm.provision :shell, :path => "environment/scripts/insxcloud.sh"
+
+  config.vm.provision :shell, :path => "environment/scripts/zend-server.sh"
   #config.vm.provision :shell, :path => "environment/scripts/custom-yum-remi-repo.sh" # needed for xsendfile
   #config.vm.provision :shell, :path => "environment/scripts/apache-modxsendfile.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-geoip.sh"
