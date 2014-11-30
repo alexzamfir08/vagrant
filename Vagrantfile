@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   config.vm.network 'private_network', ip: "192.168.56.2"
 
   # NFS sharing
-  config.vm.synced_folder "./exchange_app", "/var/www/exchange_app", id: "1"
+  config.vm.synced_folder "./exchange_app", "/var/www/exchange_app", id: "1", type: "nfs"
 
   # 1 GB memory
   config.vm.provider "virtualbox" do |vb|
@@ -57,6 +57,6 @@ Vagrant.configure("2") do |config|
   #config.vm.provision :shell, :path => "environment/scripts/grunt-watch.sh"
   config.vm.provision :shell, :path => "environment/scripts/composer.sh"
   #config.vm.provision :shell, :path => "environment/scripts/sass.sh"
-  #config.vm.provision :shell, :path => "environment/scripts/always.sh", run: "always"
+  config.vm.provision :shell, :path => "environment/scripts/always.sh", run: "always"
 
 end
