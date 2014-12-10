@@ -8,6 +8,9 @@ cd /tmp/ZendServer-RepositoryInstaller-linux
 # install with PHP 5.4
 ./install_zs.sh 5.4 --automatic
 
+echo "make symlink to PHP"
+ln -s /usr/local/zend/bin/php /usr/bin
+
 echo "Adding Apache service to autostart"
 chkconfig httpd on
 
