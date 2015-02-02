@@ -16,7 +16,7 @@ PATH=$PATH:$HOME/bin:/usr/local/zend/bin
 
 export PATH
 
-alias pull="git pull origin master"
+alias pull="git pull"
 alias st="git status"
 alias diff="git diff"
 cd /var/www/exchange_app
