@@ -20,4 +20,3 @@ alias pull="git pull"
 alias st="git status"
 alias diff="git diff"
 cd /var/www/exchange_app
-pull
