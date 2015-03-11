@@ -13,10 +13,16 @@ commit() {
 }
 
 PATH=$PATH:$HOME/bin:/usr/local/zend/bin
+DIR="/var/www/exchange_app"
 
 export PATH
 
 alias pull="git pull"
 alias st="git status"
 alias diff="git diff"
-cd /var/www/exchange_app
+cd $DIR
+
+if [ ! -d $DIR/.git ]; then
+	# pull
+    git pull origin dev
+fi
