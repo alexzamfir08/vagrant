@@ -12,9 +12,22 @@ Va fi nevoie sa instalam si un plugin de vagrant care ne asigura actualizarea au
 
     vagrant plugin install vagrant-vbguest
 
+# Sync automat prin NFS
+
+Exista suport pt sincronizare automata bidirectionala prin NFS.
+Pentru a masina locala este de preferat sa nu mai fie necesar sa facem sync manual prin sftp.
+
 Doar pentru cei cu windows:
 
     vagrant plugin install vagrant-winnfsd
+
+In Linux bazat pe Ubuntu instalam serviciile NFS:
+
+    sudo apt-get install nfs-common nfs-kernel-server
+
+Pentru OSX si Linux daca folositi sync prin NFS se poate configura sa nu va ceara parola de root de fiecare data:
+
+    https://docs.vagrantup.com/v2/synced-folders/nfs.html
 
 # Configurare Host
 
