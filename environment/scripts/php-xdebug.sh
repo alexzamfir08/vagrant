@@ -1,18 +1,16 @@
 #!/bin/bash
 
-echo "Installing XDebug dependencies"
-yum install -y php-devel php-pear gcc gcc-c++ autoconf automake
+XDEBUG_VERSION="$(pecl info Xdebug | grep xdebug-2.3.2)"
 
-echo "Installing XDebug"
-pecl install Xdebug
+if [[ $XDEBUG_VERSION != *"2.3.2"* ]]; then
+    echo "Installing XDebug"
+    /usr/local/zend/bin/pecl install Xdebug
 
-echo "Ensuring XDebug is executable"
-chmod +x /usr/lib64/php/modules/xdebug.so
-
-echo "Appending xdebug configuration details to /etc/php.ini"
-echo "[xdebug]
-zend_extension=\"/usr/lib64/php/modules/xdebug.so\"
-xdebug.remote_enable = 1" >> /etc/php.ini
-
-echo "Restarting Apache after XDebug installed"
-/sbin/service httpd restart
+    echo "Appending xdebug configuration details to php.ini"
+    echo "[Xdebug]
+    xdebug.remote_enable=1
+    xdebug.profiler_enable=1
+    xdebug.remote_host=192.168.56.1
+    xdebug.remote_port=9000
+    zend_extension=/usr/local/zend/lib/php_extensions/xdebug.so" >> /usr/local/zend/etc/php.ini
+fi

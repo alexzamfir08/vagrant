@@ -43,11 +43,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :path => "environment/scripts/insxcloud.sh"
 
   config.vm.provision :shell, :path => "environment/scripts/zend-server.sh"
-  #config.vm.provision :shell, :path => "environment/scripts/custom-yum-remi-repo.sh" # needed for xsendfile
-  #config.vm.provision :shell, :path => "environment/scripts/apache-modxsendfile.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-geoip.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-pear-phpunit.sh"
-  #config.vm.provision :shell, :path => "environment/scripts/php-xdebug.sh"
+  config.vm.provision :shell, :path => "environment/scripts/php-xdebug.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-apc.sh"
   #config.vm.provision :shell, :path => "environment/scripts/mongo.sh"
   #config.vm.provision :shell, :path => "environment/scripts/php-mongo.sh"
