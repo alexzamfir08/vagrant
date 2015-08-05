@@ -7,7 +7,8 @@ if [[ $XDEBUG_VERSION != *"2.3.2"* ]]; then
     /usr/local/zend/bin/pecl install Xdebug
 
     echo "Appending xdebug configuration details to php.ini"
-    echo "[Xdebug]
+    echo "
+    [Xdebug]
     xdebug.remote_enable=1
     xdebug.profiler_enable=1
     xdebug.remote_host=192.168.56.1
